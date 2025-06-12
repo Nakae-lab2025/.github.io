@@ -8,12 +8,15 @@
     <!-- Google Fonts を読み込み -->
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <style>
-        nav {
-            background-color: #333;
-            padding: 10px 0;
-            position: relative;
-        }
+   nav {
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed;  /* relative から fixed に変更 */
+    top: 0;           /* 追加 */
+    left: 0;          /* 追加 */
+    right: 0;         /* 追加 */
+    z-index: 1000;    /* 追加 */
+}
 
         nav ul {
             list-style-type: none;
@@ -105,13 +108,14 @@
             }
         }
 
-        body {
-            margin: 0;
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    padding-top: 60px; /* この行を追加 */
+}
 
         .header {
             text-align: center;
