@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2nd Digital Brain Workshop</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 80px 20px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('./WS_top_visual.png') center/cover;
+            background-color: #667eea;
+            color: white;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0 0 10px 0;
+            font-weight: 300;
+        }
+        
+        .header h2 {
+            font-size: 1.2em;
+            margin: 0 0 5px 0;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .header h3 {
+            font-size: 1em;
+            margin: 0;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+        
+        .intro {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .info-card h4 {
+            color: #495057;
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .info-card p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+        
+        .schedule {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .day {
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .day:last-child {
+            border-bottom: none;
+        }
+        
+        .day-header {
+            background: #667eea;
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .day-content {
+            padding: 20px;
+        }
+        
+        .time-slot {
+            display: flex;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+        
+        .time-slot:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .time {
+            min-width: 100px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .activity {
+            flex: 1;
+            color: #6c757d;
+        }
+        
+        .organizers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .organizer {
+            text-align: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .organizer strong {
+            display: block;
+            color: #495057;
+            margin-bottom: 5px;
+        }
+        
+        .organizer span {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .registration {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .registration h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .registration p {
+            color: #856404;
+            margin: 10px 0;
+        }
+        
+        .contact {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .time-slot {
+                flex-direction: column;
+            }
+            
+            .time {
+                min-width: auto;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>2nd Digital Brain Workshop</h1>
+            <h2>Enhancing communication with students and young researchers</h2>
+            <h3>Joint workshop of Korean Society for Computational Neuroscience</h3>
+        </div>
+        
+        <div class="intro">
+            <p>Leave the city lights behind and spend three days on a mountain ridge where <strong>mathematics, brain science, and fresh ideas collide</strong>. At the 2nd Digital Brain Workshop you will join a hand-picked team of young Japanese and Korean researchers, debate face-to-face in English, and sprint toward a <strong>10-minute joint proposal that could spark the next cross-border collaboration</strong>. Surrounded by hot-spring steam and star-filled skies, you'll trade lecture notes for live-fire discussion, guided by internationally renowned mentors. If you're ready to turn curiosity into concrete plans—and make lifelong allies along the way—pack your laptop and meet us in Kyushu this October.</p>
+        </div>
+        
+        <div class="section">
+            <h3>Workshop Information</h3>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>📅 Date</h4>
+                    <p>October 17-19, 2025</p>
+                </div>
+                <div class="info-card">
+                    <h4>📍 Location</h4>
+                    <p>Kuju Joint Training Center<br>
+                    600-1 Yutsubo, Kokonoe-machi, Kusu-gun, Oita</p>
+                </div>
+                <div class="info-card">
+                    <h4>👥 Participants</h4>
+                    <p>24-36 participants (including organizers)<br>
+                    6 teams of 4-6 members each</p>
+                </div>
+                <div class="info-card">
+                    <h4>🌐 Language</h4>
+                    <p>English</p>
+                </div>
+                <div class="info-card">
+                    <h4>🚌 Transportation</h4>
+                    <p>Shuttle bus from Hakata Station</p>
+                </div>
+                <div class="info-card">
+                    <h4>📝 Registration Deadline</h4>
+                    <p>September 17, 2025 (14:00)</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Location & Access</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start;">
+                <div>
+                    <h4>📍 Venue</h4>
+                    <p><strong>Kuju Joint Training Center</strong><br>
+                    600-1 Yutsubo, Kokonoe-machi, Kusu-gun, Oita<br>
+                    〒879-4912 大分県玖珠郡九重町湯坪字八丁原600-1</p>
+                    
+                    <h4>🚌 Transportation</h4>
+                    <p>Shuttle bus service will be provided from <strong>Hakata Station</strong> to the venue.<br>
+                    Departure: 11:30 on October 17<br>
+                    Return: 15:00 on October 19</p>
+                </div>
+                <div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53473.22497550444!2d131.168758!3d33.107071!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35413691c955a351%3A0xf7f2cc18e60557a9!2z5Lmd6YeN5YWx5ZCM56CU5L-u5omA!5e0!3m2!1sja!2sus!4v1749691559988!5m2!1sja!2sus"
+                        width="100%" 
+                        height="300" 
+                        style="border:0; border-radius: 8px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Team Structure</h3>
+            <p>Each team consists of:</p>
+            <ul>
+                <li>1 Japanese Brain Scientist</li>
+                <li>1 Japanese Mathematician</li>
+                <li>1 Korean Scientist</li>
+                <li>2-3 additional members</li>
+                <li>1 tutor (organizer or invited presenter)</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>Schedule</h3>
+                <div class="day">
+                    <div class="day-header">October 17, 2025 (Day 1)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">11:30-14:00</div>
+                            <div class="activity">Departure from Hakata Station & Arrival at Kuju</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">14:00-14:10</div>
+                            <div class="activity">Opening Remarks - Ken Nakae (University of Fukui)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">14:10-14:30</div>
+                            <div class="activity">Introduction of Brain/MINDS 2.0 - Kenji Doya (OIST)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">14:30-15:05</div>
+                            <div class="activity">Staci Jakyong Kim (KAIST)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">15:15-15:50</div>
+                            <div class="activity">Mathematician 1</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">15:50-16:25</div>
+                            <div class="activity">Aki Funamizu (Tokyo University)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">16:30-17:30</div>
+                            <div class="activity">Team Discussion 1: Sharing motivation and Self-Introduction</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">19:00-21:00</div>
+                            <div class="activity">Poster Session with Discussion</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">October 18, 2025 (Day 2)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">09:00-09:35</div>
+                            <div class="activity">Takkaki Kaneko (National Institute for Physiological Science)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">09:35-10:10</div>
+                            <div class="activity">Mathematician 2</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">10:20-10:55</div>
+                            <div class="activity">Akiya Watakabe (RIKEN CBS)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">10:55-11:40</div>
+                            <div class="activity">Dae Wook Kim (KAIST)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">13:00-13:35</div>
+                            <div class="activity">Woochul Choi (Korea Brain Research Institute)</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">13:45-15:20</div>
+                            <div class="activity">Team Discussion 2: Main Discussion 1</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">15:30-15:50</div>
+                            <div class="activity">Introduction of Korean Society for Computational Neuroscience</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">15:50-17:30</div>
+                            <div class="activity">Team Discussion 3: Main Discussion 2</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">19:00-21:00</div>
+                            <div class="activity">Poster Session with Discussion</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="day">
+                    <div class="day-header">October 19, 2025 (Day 3)</div>
+                    <div class="day-content">
+                        <div class="time-slot">
+                            <div class="time">09:00-09:20</div>
+                            <div class="activity">Introduction of Mathematics for Industry Platform - Tagami</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">09:30-12:00</div>
+                            <div class="activity">Team Discussion 4: Making Presentation Slides</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">13:00-14:30</div>
+                            <div class="activity">Team Presentations: 6 teams × 15 min with Q&A</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">14:30-14:40</div>
+                            <div class="activity">Closing Remarks</div>
+                        </div>
+                        <div class="time-slot">
+                            <div class="time">15:00-17:30</div>
+                            <div class="activity">Departure & Arrival at Hakata Station</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Organizers</h3>
+            <div class="organizers">
+                <div class="organizer">
+                    <strong>Ken Nakae</strong>
+                    <span>ExCELLS</span>
+                </div>
+                <div class="organizer">
+                    <strong>Takuya Isomura</strong>
+                    <span>RIKEN CBS</span>
+                </div>
+                <div class="organizer">
+                    <strong>Daisuke Tagami</strong>
+                    <span>Kyushu University</span>
+                </div>
+                <div class="organizer">
+                    <strong>Kenji Doya</strong>
+                    <span>OIST</span>
+                </div>
+                <div class="organizer">
+                    <strong>Jung Minyoung</strong>
+                    <span>Korea Brain Research Institute</span>
+                </div>
+                <div class="organizer">
+                    <strong>Se-Bum Paik</strong>
+                    <span>KAIST</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h3>Co-hosts</h3>
+            <p>Japanese Neural Network Society, Mathematics for Industry Platform</p>
+        </div>
+        
+        <div class="registration">
+            <h3>Registration</h3>
+            <p><strong>Deadline: September 17, 2025 (14:00)</strong></p>
+            <p>Registration information has been sent to prospective participants.</p>
+            <p>For inquiries, please contact: ken.nakae@gmail.com</p>
+        </div>
+        
+        <div class="contact">
+            <p><strong>Digital Brain Seminar</strong></p>
+            <p>For more information, please visit our seminar series</p>
+        </div>
+    </div>
+</body>
+</html>
